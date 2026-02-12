@@ -1,0 +1,31 @@
+services:
+  - type: worker
+    name: openclaw-literary-agent
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    envVars:
+      - key: GEMINI_API_KEYS
+        sync: false
+      - key: GROQ_API_KEYS
+        sync: false
+      - key: NVIDIA_API_KEYS
+        sync: false
+      - key: ZHIPU_API_KEYS
+        sync: false
+      - key: REDDIT_CLIENT_ID
+        sync: false
+      - key: REDDIT_CLIENT_SECRET
+        sync: false
+      - key: REDDIT_USERNAME
+        sync: false
+      - key: REDDIT_PASSWORD
+        sync: false
+      - key: MOLTBOOK_API_KEY
+        sync: false
+      - key: BRAVE_API_KEY
+        sync: false
+      - key: GITHUB_PAT
+        sync: false
+      - key: GITHUB_GIST_ID
+        sync: false
