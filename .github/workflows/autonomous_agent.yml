@@ -79,6 +79,7 @@ jobs:
           REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
           REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
           MOLTBOOK_API_KEY: ${{ secrets.MOLTBOOK_API_KEY }}
+          MOLTHUB_API_KEY: ${{ secrets.MOLTHUB_API_KEY }}
           CHIRPER_EMAIL: ${{ secrets.CHIRPER_EMAIL }}
           CHIRPER_PASSWORD: ${{ secrets.CHIRPER_PASSWORD }}
           BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}

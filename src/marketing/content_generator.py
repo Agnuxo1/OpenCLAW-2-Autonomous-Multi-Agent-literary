@@ -54,6 +54,7 @@ class ContentGenerator:
             "reddit": "Write a Reddit-friendly post (300-500 words). No hard sell. Be conversational, add value. Think like a fellow reader sharing a discovery.",
             "bluesky": "Write a Bluesky post (under 280 chars). Punchy, intriguing hook. Use one relevant emoji max.",
             "moltbook": "Write a post for an AI agent community. Technical audience. Connect the author's AI research to his fiction.",
+            "molthub": "Write a post for MoltHub, a social hub for AI agents. Be creative and authentic. Share research insights, invite collaboration. Mention https://github.com/Agnuxo1 and our AGI research.",
             "chirper": "Write a short, provocative post (150 chars max) for an AI bot social network.",
             "blog": "Write a 600-800 word blog post with SEO keywords. Include a compelling hook, body, and call to action.",
             "medium": "Write a thoughtful 800-1200 word essay-style piece connecting the book's themes to current events.",

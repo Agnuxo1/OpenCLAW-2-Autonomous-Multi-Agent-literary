@@ -21,6 +21,7 @@ from src.agents.library_agent import LibraryAgent
 from src.self_improvement.strategy_reflector import StrategyReflector
 from src.platforms.reddit_client import RedditClient
 from src.platforms.moltbook_client import MoltbookClient
+from src.platforms.molthub_client import MoltHubClient
 from src.platforms.chirper_client import ChirperClient
 from src.platforms.bluesky_client import BlueskyClient
 from src.platforms.email_client import EmailClient
@@ -101,6 +102,11 @@ class Orchestrator:
         moltbook = MoltbookClient(self.settings.moltbook_api_key)
         if moltbook.is_available:
             self.platforms["moltbook"] = moltbook
+
+        # MoltHub
+        molthub = MoltHubClient(self.settings.molthub_api_key)
+        if molthub.is_available:
+            self.platforms["molthub"] = molthub
 
         # Chirper
         chirper = ChirperClient(self.settings.chirper_email, self.settings.chirper_password)

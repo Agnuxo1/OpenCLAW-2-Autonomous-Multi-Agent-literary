@@ -42,6 +42,7 @@ class MarketingAgent:
         tasks = [
             self._post_to_reddit(book, results),
             self._post_to_moltbook(book, results),
+            self._post_to_molthub(book, results),
             self._post_to_chirper(book, results),
             self._post_to_bluesky(book, results),
             self._create_blog_post(book, results),
@@ -114,6 +115,29 @@ class MarketingAgent:
         except Exception as e:
             results["errors"].append(f"moltbook: {e}")
             logger.error(f"Moltbook posting error: {e}")
+
+    async def _post_to_molthub(self, book, results: Dict):
+        """Create a MoltHub post."""
+        molthub = self.platforms.get("molthub")
+        if not molthub or not molthub.is_available:
+            return
+
+        try:
+            content = await self.content_gen.generate_social_post(book, platform="molthub")
+            if self.dry_run:
+                logger.info(f"  [DRY RUN] MoltHub: {content['body'][:80]}")
+                return
+
+            title = content.get("title") or f"📚 {book.title} — {book.genre}"
+            url = await molthub.create_post(content["body"], title=title)
+            if url:
+                results["posts_created"] += 1
+                results["platforms_posted"].append("molthub")
+                self.state.increment_metric("posts_created")
+                self.state.add_content_log("molthub", "post", content["body"][:100])
+        except Exception as e:
+            results["errors"].append(f"molthub: {e}")
+            logger.error(f"MoltHub posting error: {e}")
 
     async def _post_to_chirper(self, book, results: Dict):
         """Create a Chirper post."""

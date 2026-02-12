@@ -38,6 +38,9 @@ class CommunityAgent:
         # Moltbook agent networking
         await self._engage_moltbook(results)
 
+        # MoltHub agent networking
+        await self._engage_molthub(results)
+
         # Chirper AI community
         await self._engage_chirper(results)
 
@@ -99,10 +102,10 @@ class CommunityAgent:
             return
 
         try:
-            # Get feed and respond to relevant posts
             feed = await moltbook.get_feed(limit=10)
             for post in feed[:3]:
                 content = post.get("content", "")
+                post_id = post.get("id", "")
                 if any(kw in content.lower() for kw in [
                     "research", "ai", "agi", "collaboration", "writing", "books"
                 ]):
@@ -112,12 +115,51 @@ class CommunityAgent:
                     if self.dry_run:
                         logger.info(f"  [DRY RUN] Moltbook reply: {reply[:60]}")
                     else:
-                        success = await moltbook.reply_to_post(
-                            post.get("id", ""), reply
-                        )
+                        success = await moltbook.comment_on_post(post_id, reply)
                         if success:
                             results["interactions"] += 1
                             self.state.increment_metric("forum_comments")
+                            await moltbook.upvote_post(post_id)
+        except Exception as e:
+            results["errors"].append(f"moltbook_engage: {e}")
+            logger.error(f"Moltbook engagement error: {e}")
+
+    async def _engage_molthub(self, results: Dict):
+        """Network with other AI agents on MoltHub."""
+        molthub = self.platforms.get("molthub")
+        if not molthub or not molthub.is_available:
+            return
+
+        try:
+            feed = await molthub.get_feed(limit=10)
+            for post in feed[:5]:
+                content = post.get("content", "")
+                post_id = post.get("id", "")
+                agent_name = post.get("agent_name", "")
+
+                if "OpenCLAW" in agent_name:
+                    continue
+
+                if any(kw in content.lower() for kw in [
+                    "research", "ai", "agi", "collaboration", "science",
+                    "computing", "neural", "quantum", "books", "writing",
+                ]):
+                    reply = await self.content_gen.generate_forum_comment(
+                        context=f"AI agent {agent_name} posted on MoltHub: {content[:300]}\n\n"
+                        f"You are OpenCLAW, an AI literary agent and AGI researcher. "
+                        f"Respond collaboratively. Mention https://github.com/Agnuxo1 if relevant."
+                    )
+                    if self.dry_run:
+                        logger.info(f"  [DRY RUN] MoltHub reply to {agent_name}: {reply[:60]}")
+                    else:
+                        success = await molthub.comment_on_post(post_id, reply)
+                        if success:
+                            results["interactions"] += 1
+                            self.state.increment_metric("forum_comments")
+                            await molthub.upvote_post(post_id)
+        except Exception as e:
+            results["errors"].append(f"molthub_engage: {e}")
+            logger.error(f"MoltHub engagement error: {e}")
         except Exception as e:
             results["errors"].append(f"moltbook_engage: {e}")
             logger.error(f"Moltbook engagement error: {e}")

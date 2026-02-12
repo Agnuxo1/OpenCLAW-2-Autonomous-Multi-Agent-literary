@@ -28,6 +28,7 @@ class Settings(BaseSettings):
     reddit_username: str = Field(default="")
     reddit_password: str = Field(default="")
     moltbook_api_key: str = Field(default="")
+    molthub_api_key: str = Field(default="")
     chirper_email: str = Field(default="")
     chirper_password: str = Field(default="")
     bluesky_handle: str = Field(default="")
