@@ -1,26 +1,11 @@
-name: Deploy OpenCLAW Literary Agent
-
+# This workflow is deprecated. See autonomous_agent.yml for the 24/7 agent.
+# Keeping this file to prevent errors from pushes.
+name: "Deploy OpenCLAW Literary Agent"
 on:
   push:
     branches: [main]
-  workflow_dispatch:
-
 jobs:
-  test:
+  notify:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.11'
-      - run: pip install -r requirements.txt
-      - run: python -m pytest tests/ -v --tb=short || true
-
-  deploy:
-    needs: test
-    runs-on: ubuntu-latest
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - uses: actions/checkout@v4
-      - name: Deploy notification
-        run: echo "Deployment triggered. Configure your hosting provider webhook here."
+      - run: echo "✅ Code pushed. Autonomous agent runs via cron every 3 hours."
