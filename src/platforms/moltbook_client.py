@@ -6,7 +6,7 @@ from src.utils.logger import get_logger
 
 logger = get_logger(__name__)
 
-MOLTBOOK_API_BASE = "https://www.moltbook.com/api"
+MOLTBOOK_API_BASE = "https://www.moltbook.com/api/v1"
 
 
 class MoltbookClient:

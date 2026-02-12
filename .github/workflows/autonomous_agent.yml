@@ -63,16 +63,15 @@ jobs:
       - name: "🦅 Run Agent Cycle"
         env:
           # === Core ===
-          GITHUB_PAT: ${{ secrets.GH_PAT }}
-          GITHUB_GIST_ID: ${{ secrets.AGENT_GIST_ID }}
+          GH_PAT: ${{ secrets.GH_PAT }}
+          AGENT_GIST_ID: ${{ secrets.AGENT_GIST_ID }}
           
-          # === LLM Providers (add your keys as GitHub Secrets) ===
+          # === LLM Providers ===
           GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
           GROQ_API_KEYS: ${{ secrets.GROQ_API_KEYS }}
           NVIDIA_API_KEYS: ${{ secrets.NVIDIA_API_KEYS }}
           ZHIPU_API_KEYS: ${{ secrets.ZHIPU_API_KEYS }}
-          CLOUDFLARE_AI_TOKEN: ${{ secrets.CLOUDFLARE_AI_TOKEN }}
-          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          HF_TOKEN: ${{ secrets.HF_TOKEN }}
           
           # === Platforms ===
           REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
@@ -84,8 +83,14 @@ jobs:
           CHIRPER_PASSWORD: ${{ secrets.CHIRPER_PASSWORD }}
           BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
           BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          
+          # === Email (Zoho) ===
+          SMTP_HOST: smtp.zoho.eu
+          SMTP_PORT: "465"
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          
+          # === Search ===
           BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
         run: |
           TASK="${{ github.event.inputs.task }}"
