@@ -1,0 +1,118 @@
+# ============================================================
+# OpenCLAW-2 Autonomous Literary Agent — 24/7 GitHub Actions
+# ============================================================
+# Runs every 3 hours via cron. Each run is one "smart cycle":
+#   - Always runs marketing
+#   - Community every ~6h, submissions every ~12h, library every ~24h
+#   - Self-improvement reflection every ~6h
+# State persists via GitHub Gist between runs.
+#
+# FREE TIER: Public repos get 2,000 minutes/month.
+#   ~8 runs/day × ~3 min = ~720 min/month (well within limit)
+
+name: "🦅 OpenCLAW-2 Autonomous Agent"
+
+on:
+  # Every 3 hours: at minute 17 to avoid GitHub's top-of-hour congestion
+  schedule:
+    - cron: "17 */3 * * *"
+  
+  # Manual trigger for testing
+  workflow_dispatch:
+    inputs:
+      task:
+        description: "Specific task to run (leave empty for smart cycle)"
+        required: false
+        type: choice
+        options:
+          - ""
+          - marketing
+          - submissions
+          - community
+          - library
+          - all
+      dry_run:
+        description: "Dry run (no posting)"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  agent-cycle:
+    name: "Agent Cycle"
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: "📥 Checkout"
+        uses: actions/checkout@v4
+
+      - name: "🐍 Python 3.11"
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: pip
+
+      - name: "📦 Install dependencies"
+        run: |
+          pip install -r requirements.txt
+
+      - name: "🦅 Run Agent Cycle"
+        env:
+          # === Core ===
+          GITHUB_PAT: ${{ secrets.GH_PAT }}
+          GITHUB_GIST_ID: ${{ secrets.AGENT_GIST_ID }}
+          
+          # === LLM Providers (add your keys as GitHub Secrets) ===
+          GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
+          GROQ_API_KEYS: ${{ secrets.GROQ_API_KEYS }}
+          NVIDIA_API_KEYS: ${{ secrets.NVIDIA_API_KEYS }}
+          ZHIPU_API_KEYS: ${{ secrets.ZHIPU_API_KEYS }}
+          CLOUDFLARE_AI_TOKEN: ${{ secrets.CLOUDFLARE_AI_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          
+          # === Platforms ===
+          REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
+          REDDIT_CLIENT_SECRET: ${{ secrets.REDDIT_CLIENT_SECRET }}
+          REDDIT_USERNAME: ${{ secrets.REDDIT_USERNAME }}
+          REDDIT_PASSWORD: ${{ secrets.REDDIT_PASSWORD }}
+          MOLTBOOK_API_KEY: ${{ secrets.MOLTBOOK_API_KEY }}
+          CHIRPER_EMAIL: ${{ secrets.CHIRPER_EMAIL }}
+          CHIRPER_PASSWORD: ${{ secrets.CHIRPER_PASSWORD }}
+          BLUESKY_HANDLE: ${{ secrets.BLUESKY_HANDLE }}
+          BLUESKY_APP_PASSWORD: ${{ secrets.BLUESKY_APP_PASSWORD }}
+          SMTP_USER: ${{ secrets.SMTP_USER }}
+          SMTP_PASSWORD: ${{ secrets.SMTP_PASSWORD }}
+          BRAVE_API_KEY: ${{ secrets.BRAVE_API_KEY }}
+        run: |
+          TASK="${{ github.event.inputs.task }}"
+          DRY="${{ github.event.inputs.dry_run }}"
+          
+          if [ -n "$TASK" ]; then
+            echo "Running specific task: $TASK"
+            if [ "$DRY" = "true" ]; then
+              python main.py --task "$TASK" --dry-run -v
+            else
+              python main.py --task "$TASK" -v
+            fi
+          else
+            echo "Running smart cycle..."
+            if [ "$DRY" = "true" ]; then
+              python main.py --cycle --dry-run -v
+            else
+              python main.py --cycle -v
+            fi
+          fi
+
+      - name: "📊 Upload logs"
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: agent-logs-${{ github.run_number }}
+          path: |
+            state/
+            logs/
+          retention-days: 7

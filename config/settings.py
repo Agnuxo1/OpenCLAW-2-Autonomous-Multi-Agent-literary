@@ -21,8 +21,6 @@ class Settings(BaseSettings):
     daily_review_hour: int = Field(default=3)
     log_level: str = Field(default="INFO")
     state_dir: str = Field(default="./state")
-    github_pat: str = Field(default="")
-    github_gist_id: str = Field(default="")
     local_llm_url: str = Field(default="http://127.0.0.1:8080/v1")
     max_retries_per_provider: int = Field(default=3)
     reddit_client_id: str = Field(default="")
@@ -42,6 +40,16 @@ class Settings(BaseSettings):
     brave_api_key: str = Field(default="")
     port: int = Field(default=8080)
     host: str = Field(default="0.0.0.0")
+
+    @property
+    def github_pat(self) -> str:
+        """GitHub PAT — tries GH_PAT first (Actions), then GITHUB_PAT."""
+        return os.getenv("GH_PAT", os.getenv("GITHUB_PAT", ""))
+
+    @property
+    def github_gist_id(self) -> str:
+        """Gist ID — tries AGENT_GIST_ID first (Actions), then GITHUB_GIST_ID."""
+        return os.getenv("AGENT_GIST_ID", os.getenv("GITHUB_GIST_ID", ""))
 
     @property
     def gemini_api_keys(self) -> List[str]:

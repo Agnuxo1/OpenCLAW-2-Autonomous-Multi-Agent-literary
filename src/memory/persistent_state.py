@@ -29,16 +29,63 @@ class PersistentState:
         self._dirty = False
 
     async def load(self):
-        """Load state from disk."""
+        """Load state from disk, or from Gist if running in ephemeral environment (GitHub Actions)."""
         state_file = self.state_dir / "agent_state.json"
+        
         if state_file.exists():
             async with aiofiles.open(state_file, "r") as f:
                 self._state = json.loads(await f.read())
-            logger.info(f"State loaded: {len(self._state)} keys")
+            logger.info(f"State loaded from disk: {len(self._state)} keys")
+        elif self.github_pat and self.gist_id:
+            # Try loading from Gist (ephemeral environment like GitHub Actions)
+            logger.info("No local state found, loading from Gist...")
+            loaded = await self._load_from_gist()
+            if loaded:
+                logger.info(f"State loaded from Gist: {len(self._state)} keys")
+                # Save locally for the rest of this session
+                await self._save_local()
+            else:
+                logger.info("No Gist state found, creating fresh state")
+                self._state = self._default_state()
+                await self.save()
         else:
             self._state = self._default_state()
             await self.save()
             logger.info("Fresh state initialized")
+
+    async def _load_from_gist(self) -> bool:
+        """Try to load state from GitHub Gist."""
+        try:
+            async with httpx.AsyncClient() as client:
+                resp = await client.get(
+                    f"https://api.github.com/gists/{self.gist_id}",
+                    headers={
+                        "Authorization": f"Bearer {self.github_pat}",
+                        "Accept": "application/vnd.github+json",
+                    },
+                    timeout=30,
+                )
+                if resp.status_code == 200:
+                    gist_data = resp.json()
+                    files = gist_data.get("files", {})
+                    state_file = files.get("openclaw_literary_state.json")
+                    if state_file and state_file.get("content"):
+                        self._state = json.loads(state_file["content"])
+                        return True
+                    # Also check old filename
+                    state_file = files.get("agent_state.json")
+                    if state_file and state_file.get("content"):
+                        self._state = json.loads(state_file["content"])
+                        return True
+        except Exception as e:
+            logger.warning(f"Gist load failed: {e}")
+        return False
+
+    async def _save_local(self):
+        """Save state to local disk only."""
+        state_file = self.state_dir / "agent_state.json"
+        async with aiofiles.open(state_file, "w") as f:
+            await f.write(json.dumps(self._state, indent=2, default=str))
 
     def _default_state(self) -> Dict[str, Any]:
         return {
@@ -99,6 +146,11 @@ class PersistentState:
 
     def get(self, key: str, default: Any = None) -> Any:
         return self._state.get(key, default)
+
+    @property
+    def data(self) -> Dict[str, Any]:
+        """Direct access to state data dict."""
+        return self._state
 
     def set(self, key: str, value: Any):
         self._state[key] = value
