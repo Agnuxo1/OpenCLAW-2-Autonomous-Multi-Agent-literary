@@ -17,9 +17,12 @@ logger = get_logger(__name__)
 
 
 class ProviderType(str, Enum):
-    GEMINI = "gemini"
     GROQ = "groq"
+    OPENROUTER = "openrouter"
     NVIDIA = "nvidia"
+    MISTRAL = "mistral"
+    DEEPSEEK = "deepseek"
+    GEMINI = "gemini"
     ZHIPU = "zhipu"
     HUGGINGFACE = "huggingface"
     LOCAL = "local"
@@ -83,6 +86,36 @@ class LLMPool:
                 base_url="https://integrate.api.nvidia.com/v1",
                 model="meta/llama-3.1-70b-instruct",
                 keys=[ProviderKey(k, ProviderType.NVIDIA) for k in nvidia_keys],
+            ))
+
+        # OpenRouter (6 keys, free tier models)
+        openrouter_keys = self.settings.openrouter_api_keys
+        if openrouter_keys:
+            self.providers.append(ProviderConfig(
+                provider_type=ProviderType.OPENROUTER,
+                base_url="https://openrouter.ai/api/v1",
+                model="deepseek/deepseek-r1-0528:free",
+                keys=[ProviderKey(k, ProviderType.OPENROUTER) for k in openrouter_keys],
+            ))
+
+        # Mistral
+        mistral_keys = self.settings.mistral_api_keys
+        if mistral_keys:
+            self.providers.append(ProviderConfig(
+                provider_type=ProviderType.MISTRAL,
+                base_url="https://api.mistral.ai/v1",
+                model="mistral-small-latest",
+                keys=[ProviderKey(k, ProviderType.MISTRAL) for k in mistral_keys],
+            ))
+
+        # DeepSeek (when balance available)
+        deepseek_keys = self.settings.deepseek_api_keys
+        if deepseek_keys:
+            self.providers.append(ProviderConfig(
+                provider_type=ProviderType.DEEPSEEK,
+                base_url="https://api.deepseek.com",
+                model="deepseek-chat",
+                keys=[ProviderKey(k, ProviderType.DEEPSEEK) for k in deepseek_keys],
             ))
 
         # Gemini (when keys are valid)
@@ -246,7 +279,14 @@ class LLMPool:
         """Dispatch to the appropriate provider API."""
         if provider.provider_type == ProviderType.GEMINI:
             return await self._call_gemini(key.key, prompt, system_prompt, max_tokens, temperature)
-        elif provider.provider_type in (ProviderType.GROQ, ProviderType.NVIDIA, ProviderType.LOCAL, ProviderType.HUGGINGFACE):
+        elif provider.provider_type == ProviderType.OPENROUTER:
+            return await self._call_openrouter(
+                key.key, provider.model, prompt, system_prompt, max_tokens, temperature
+            )
+        elif provider.provider_type in (
+            ProviderType.GROQ, ProviderType.NVIDIA, ProviderType.LOCAL,
+            ProviderType.HUGGINGFACE, ProviderType.MISTRAL, ProviderType.DEEPSEEK,
+        ):
             return await self._call_openai_compatible(
                 provider.base_url, key.key, provider.model,
                 prompt, system_prompt, max_tokens, temperature
@@ -282,7 +322,7 @@ class LLMPool:
         self, base_url: str, api_key: str, model: str,
         prompt: str, system_prompt: str, max_tokens: int, temperature: float,
     ) -> str:
-        """Call any OpenAI-compatible API (Groq, NVIDIA, Local)."""
+        """Call any OpenAI-compatible API (Groq, NVIDIA, Mistral, DeepSeek, Local)."""
         from openai import AsyncOpenAI
 
         client = AsyncOpenAI(base_url=base_url, api_key=api_key)
@@ -298,6 +338,43 @@ class LLMPool:
             temperature=temperature,
         )
         return response.choices[0].message.content
+
+    async def _call_openrouter(
+        self, api_key: str, model: str, prompt: str,
+        system_prompt: str, max_tokens: int, temperature: float,
+    ) -> str:
+        """Call OpenRouter API (needs extra headers)."""
+        import httpx
+
+        messages = []
+        if system_prompt:
+            messages.append({"role": "system", "content": system_prompt})
+        messages.append({"role": "user", "content": prompt})
+
+        async with httpx.AsyncClient(timeout=60) as client:
+            resp = await client.post(
+                "https://openrouter.ai/api/v1/chat/completions",
+                headers={
+                    "Authorization": f"Bearer {api_key}",
+                    "Content-Type": "application/json",
+                    "HTTP-Referer": "https://github.com/Agnuxo1/OpenCLAW-2-Autonomous-Multi-Agent-literary",
+                    "X-Title": "OpenCLAW-2 Literary Agent",
+                },
+                json={
+                    "model": model,
+                    "messages": messages,
+                    "max_tokens": max_tokens,
+                    "temperature": temperature,
+                },
+            )
+            resp.raise_for_status()
+            data = resp.json()
+            content = data["choices"][0]["message"]["content"]
+            # OpenRouter DeepSeek-R1 may include <think> tags — strip them
+            if "<think>" in content:
+                import re
+                content = re.sub(r"<think>.*?</think>", "", content, flags=re.DOTALL).strip()
+            return content
 
     async def _call_zhipu(
         self, api_key: str, model: str, prompt: str,

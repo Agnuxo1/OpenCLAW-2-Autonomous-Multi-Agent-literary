@@ -65,6 +65,18 @@ class Settings(BaseSettings):
         return _parse_key_list("NVIDIA_API_KEYS")
 
     @property
+    def openrouter_api_keys(self) -> List[str]:
+        return _parse_key_list("OPENROUTER_API_KEYS")
+
+    @property
+    def mistral_api_keys(self) -> List[str]:
+        return _parse_key_list("MISTRAL_API_KEYS")
+
+    @property
+    def deepseek_api_keys(self) -> List[str]:
+        return _parse_key_list("DEEPSEEK_API_KEYS")
+
+    @property
     def zhipu_api_keys(self) -> List[str]:
         return _parse_key_list("ZHIPU_API_KEYS")
 

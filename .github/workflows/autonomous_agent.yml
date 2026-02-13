@@ -70,8 +70,12 @@ jobs:
           GEMINI_API_KEYS: ${{ secrets.GEMINI_API_KEYS }}
           GROQ_API_KEYS: ${{ secrets.GROQ_API_KEYS }}
           NVIDIA_API_KEYS: ${{ secrets.NVIDIA_API_KEYS }}
+          OPENROUTER_API_KEYS: ${{ secrets.OPENROUTER_API_KEYS }}
+          MISTRAL_API_KEYS: ${{ secrets.MISTRAL_API_KEYS }}
+          DEEPSEEK_API_KEYS: ${{ secrets.DEEPSEEK_API_KEYS }}
           ZHIPU_API_KEYS: ${{ secrets.ZHIPU_API_KEYS }}
           HF_TOKEN: ${{ secrets.HF_TOKEN }}
+          GOOGLE_CLOUD_API_KEY: ${{ secrets.GOOGLE_CLOUD_API_KEY }}
           
           # === Platforms ===
           REDDIT_CLIENT_ID: ${{ secrets.REDDIT_CLIENT_ID }}
