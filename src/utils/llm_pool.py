@@ -62,19 +62,10 @@ class LLMPool:
         self._setup_providers()
 
     def _setup_providers(self):
-        """Initialize all available providers from settings."""
+        """Initialize all available providers from settings.
+        Order matters: most reliable/fastest first."""
 
-        # Gemini
-        gemini_keys = self.settings.gemini_api_keys
-        if gemini_keys:
-            self.providers.append(ProviderConfig(
-                provider_type=ProviderType.GEMINI,
-                base_url="https://generativelanguage.googleapis.com/v1beta",
-                model="gemini-2.0-flash",
-                keys=[ProviderKey(k, ProviderType.GEMINI) for k in gemini_keys],
-            ))
-
-        # Groq
+        # Groq (primary — fast, 5 free keys)
         groq_keys = self.settings.groq_api_keys
         if groq_keys:
             self.providers.append(ProviderConfig(
@@ -84,7 +75,7 @@ class LLMPool:
                 keys=[ProviderKey(k, ProviderType.GROQ) for k in groq_keys],
             ))
 
-        # NVIDIA
+        # NVIDIA (secondary — reliable)
         nvidia_keys = self.settings.nvidia_api_keys
         if nvidia_keys:
             self.providers.append(ProviderConfig(
@@ -94,7 +85,17 @@ class LLMPool:
                 keys=[ProviderKey(k, ProviderType.NVIDIA) for k in nvidia_keys],
             ))
 
-        # ZhipuAI
+        # Gemini (when keys are valid)
+        gemini_keys = self.settings.gemini_api_keys
+        if gemini_keys:
+            self.providers.append(ProviderConfig(
+                provider_type=ProviderType.GEMINI,
+                base_url="https://generativelanguage.googleapis.com/v1beta",
+                model="gemini-2.0-flash",
+                keys=[ProviderKey(k, ProviderType.GEMINI) for k in gemini_keys],
+            ))
+
+        # ZhipuAI (when credits available)
         zhipu_keys = self.settings.zhipu_api_keys
         if zhipu_keys:
             self.providers.append(ProviderConfig(
