@@ -19,6 +19,7 @@ feedparser>=6.0.0
 # Social Platforms
 praw>=7.7.0
 atproto>=0.0.46
+huggingface_hub>=0.20.0
 
 # Email
 aiosmtplib>=3.0.0

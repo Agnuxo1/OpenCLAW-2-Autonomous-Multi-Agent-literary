@@ -160,9 +160,6 @@ class CommunityAgent:
         except Exception as e:
             results["errors"].append(f"molthub_engage: {e}")
             logger.error(f"MoltHub engagement error: {e}")
-        except Exception as e:
-            results["errors"].append(f"moltbook_engage: {e}")
-            logger.error(f"Moltbook engagement error: {e}")
 
     async def _engage_chirper(self, results: Dict):
         """Interact on Chirper.ai."""

@@ -68,6 +68,16 @@ class Settings(BaseSettings):
     def zhipu_api_keys(self) -> List[str]:
         return _parse_key_list("ZHIPU_API_KEYS")
 
+    @property
+    def hf_tokens(self) -> List[str]:
+        """HuggingFace tokens — tries HF_TOKENS (comma list) then HF_TOKEN (single)."""
+        tokens = _parse_key_list("HF_TOKENS")
+        if not tokens:
+            single = os.getenv("HF_TOKEN", "")
+            if single:
+                tokens = [single]
+        return tokens
+
     class Config:
         env_file = ".env"
         extra = "ignore"

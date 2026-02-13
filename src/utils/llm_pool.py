@@ -21,6 +21,7 @@ class ProviderType(str, Enum):
     GROQ = "groq"
     NVIDIA = "nvidia"
     ZHIPU = "zhipu"
+    HUGGINGFACE = "huggingface"
     LOCAL = "local"
 
 
@@ -99,7 +100,7 @@ class LLMPool:
             self.providers.append(ProviderConfig(
                 provider_type=ProviderType.ZHIPU,
                 base_url="https://open.bigmodel.cn/api/paas/v4",
-                model="glm-4-flash",
+                model="glm-4-plus",
                 keys=[ProviderKey(k, ProviderType.ZHIPU) for k in zhipu_keys],
             ))
 
@@ -244,7 +245,7 @@ class LLMPool:
         """Dispatch to the appropriate provider API."""
         if provider.provider_type == ProviderType.GEMINI:
             return await self._call_gemini(key.key, prompt, system_prompt, max_tokens, temperature)
-        elif provider.provider_type in (ProviderType.GROQ, ProviderType.NVIDIA, ProviderType.LOCAL):
+        elif provider.provider_type in (ProviderType.GROQ, ProviderType.NVIDIA, ProviderType.LOCAL, ProviderType.HUGGINGFACE):
             return await self._call_openai_compatible(
                 provider.base_url, key.key, provider.model,
                 prompt, system_prompt, max_tokens, temperature
