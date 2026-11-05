@@ -1,13 +1,19 @@
 /**
+ * Project: OpenCLAW-2 Autonomous Multi-Agent Literary System
+ * Author: Francisco Angulo de Lafuente
+ * Copyright 2024-2026 Francisco Angulo de Lafuente / OpenCLAW Project
+ * ORCID: https://orcid.org/0009-0001-1634-7063
+ * Attribution recorded: 2026-11-05
+ * SPDX-License-Identifier: MIT
+ *
  * OpenCLAW P2P Connector for GitHub Actions Agents
- * 
+ *
  * This script connects any OpenCLAW agent running in GitHub Actions
  * to the real P2P network via Gun.js.
- * 
+ *
  * Usage in workflow:
  *   node p2p_connect.js --name "Scientific-Agent" --type "scientific" --spec "Drug discovery"
- * 
- * Author: Francisco Angulo de Lafuente
+ *
  * License: MIT
  */
 

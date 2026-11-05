@@ -1,0 +1,504 @@
+{
+  "schema_version": "1.0",
+  "repository": "Agnuxo1/OpenCLAW-2-Autonomous-Multi-Agent-literary",
+  "canonical_url": "https://github.com/Agnuxo1/OpenCLAW-2-Autonomous-Multi-Agent-literary",
+  "recorded_on": "2026-11-05",
+  "original_commit": "0deb9b7ad118f5ad1799e11b2309fb66d4957ad5",
+  "original_tree": "bb597a93f11bf26e460e9e56cbd2dffcbdb41638",
+  "method": {
+    "file_hash": "SHA-256 over raw original Git blob bytes at original_commit.",
+    "source": "Git cat-file blobs captured before edits.",
+    "passages": "Exact original excerpts and line ranges, with a Unicode NFC and whitespace-collapsed comparison hash.",
+    "limitations": "A hash match proves byte identity only; it does not establish authorship, acquisition path, or license violation."
+  },
+  "files": [
+    {
+      "path": ".env.example",
+      "original_blob_oid": "171990e5f26822be51d7b9ad032cf30508b23af8",
+      "sha256_raw_bytes": "fc97c0e5a1ceefa7370e9d4ea80cf8e60119ce9e33a8782c9a9cbbebe6010db7",
+      "size_bytes": 1121,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": ".github/workflows/autonomous_agent.yml",
+      "original_blob_oid": "af49cdde0c6406b36a2f2a3bf473b10f1ccf57c0",
+      "sha256_raw_bytes": "adbaa9c14fe27499b6c142821170364b1d62bdc30da5ea60831b045ec0a0f08b",
+      "size_bytes": 4163,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": ".github/workflows/deploy.yml",
+      "original_blob_oid": "3aa53062fb33f9f66cbf748ccef628f0c2b6cb87",
+      "sha256_raw_bytes": "06408a515e85a5752cbe4a300c51e1f6c53bf8a5801e00d9e28b654663f6c8b6",
+      "size_bytes": 336,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": ".github/workflows/p2p-alive.yml",
+      "original_blob_oid": "32fb5012876e18d811ab26efa0618ebcaca18a03",
+      "sha256_raw_bytes": "b3965dc4ef7a42c04e32b3814f7699c328cb04ec6c3922a51228e00bb3601d35",
+      "size_bytes": 693,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": ".gitignore",
+      "original_blob_oid": "d29f0e389c56ce1b2e00e9ebbe512676cfae4bd0",
+      "sha256_raw_bytes": "e6e92ae0ce65a6d2ccd12bbf5b81903f457a94abf9007985e64ccbcaa9b8aa57",
+      "size_bytes": 153,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "Dockerfile",
+      "original_blob_oid": "a0de68891970ba43bd31c2ccf9dae7cb609c0bbf",
+      "sha256_raw_bytes": "09878bcbf87f90a0f46adf467f497cb46e1897bc43732ba1380119fab158df04",
+      "size_bytes": 578,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "LICENSE",
+      "original_blob_oid": "23aa0da2ab2cefc5f27a6063ef07041d24c13312",
+      "sha256_raw_bytes": "411e1d796f3a07c6f7ce6c328513f4a5d1f8e72d2270b639bc889e0f9f4eb2fc",
+      "size_bytes": 667,
+      "handling": "existing_license_preserved"
+    },
+    {
+      "path": "README.md",
+      "original_blob_oid": "65c7006f34ae9fce507ac424b5f919387018f321",
+      "sha256_raw_bytes": "b7604c4af8545cca0259c9df15db9193613a3d5289a2bf58f1be38d28735f707",
+      "size_bytes": 6774,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "config/__init__.py",
+      "original_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256_raw_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "config/author_profile.py",
+      "original_blob_oid": "2c40ff0db644584d52b8631ffff013a176d51ca2",
+      "sha256_raw_bytes": "53c66c7dee3f7e22e60965e1fe073597a9388253b504c84cf9ab77ab81a0ad49",
+      "size_bytes": 11325,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "config/settings.py",
+      "original_blob_oid": "ee5b59e63a48b6adf765910b44786f60caf278b0",
+      "sha256_raw_bytes": "5275edf6f2cd9479dc912b3893e9cc3bd1dd9ddc3c93fdf5ea59108c78b88484",
+      "size_bytes": 3247,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "docker-compose.yml",
+      "original_blob_oid": "65137e1b1132bd57e3282a0181d425a09a0236e2",
+      "sha256_raw_bytes": "5bacfc3bfc8e76235d9e8358220b288ef31b918e803e8133789f5d5f1bb348d1",
+      "size_bytes": 387,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "docs/AGENT_BEHAVIOR.md",
+      "original_blob_oid": "3a39c9c0fe2615ad051bb5fe720f8cd15130e82c",
+      "sha256_raw_bytes": "961708fb50765884433dd1691d05e97721bc5033d2bbca69e0ceb43639f21d67",
+      "size_bytes": 1407,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "docs/API_ROTATION.md",
+      "original_blob_oid": "6d668d15b01d8e4253176ee22396f2d9daaaf93c",
+      "sha256_raw_bytes": "7a0d7193a6c2238f0ea59926ef6441480772982ac588563efbfc708c990888c6",
+      "size_bytes": 874,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "docs/CONFIGURATION.md",
+      "original_blob_oid": "c3ce140bb74ffbff62ebba94f3e6754d2b69c764",
+      "sha256_raw_bytes": "c33c4a19c19ee2a2340a10308528140d34c685de1c98ba5a6db54376daafc23d",
+      "size_bytes": 1684,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "docs/DEPLOYMENT.md",
+      "original_blob_oid": "0572532a5e3cdd88d9aad02fca9c65cbb1a50f7d",
+      "sha256_raw_bytes": "2c0eef53a8917eea221b4aacc04b0935f4f23e781e56d9f7b811cae8e459312d",
+      "size_bytes": 637,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "hivemind.py",
+      "original_blob_oid": "9891a62dc0c45978936c52dce056db13e86570b3",
+      "sha256_raw_bytes": "6a9d23fc0900bae3474bb2b41af292a3450fd80ab77b602908d6d417404c803a",
+      "size_bytes": 12358,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "main.py",
+      "original_blob_oid": "6d795655562b045c66b67605e01863fa455f70c2",
+      "sha256_raw_bytes": "e83c698e5c5eee573e63d85d4d6122cdf09c69a36863bf01add611967a95abf5",
+      "size_bytes": 8362,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "p2p_connect.js",
+      "original_blob_oid": "a3b19c5c755e38cbc8c8ec7bfd7bea9cece3a8d3",
+      "sha256_raw_bytes": "ccd619e3f3f2f9fed88f7c36ba279c9f28e603e4c04ab531c6b793c9874b8ff8",
+      "size_bytes": 2622,
+      "handling": "mit_header"
+    },
+    {
+      "path": "railway.json",
+      "original_blob_oid": "cc2c2989582476f949faaf9936bc3ed9bc4184f8",
+      "sha256_raw_bytes": "4b265dd2431777a1557b6c2137eef2a799eac707a1d4acd9151dd68e605272bb",
+      "size_bytes": 267,
+      "handling": "json_configuration_preserved"
+    },
+    {
+      "path": "render.yaml",
+      "original_blob_oid": "360b7fd3f2d5e519456829a9bba8247c45f8ff92",
+      "sha256_raw_bytes": "99bf443a297acc96879ab36075994299596c5d3d7741c08a61c48b5177a17d5e",
+      "size_bytes": 761,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "requirements.txt",
+      "original_blob_oid": "5a6ecd8eb13da114102f903ab2d0512d5b5e3aa0",
+      "sha256_raw_bytes": "9f1af797114c8c22ffe6032068c57f133e99fbcc610d5c48a55ecbd7cfcae4bf",
+      "size_bytes": 607,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "scripts/start_agent.ps1",
+      "original_blob_oid": "4ab3946b788461165b721ee5210ee8790ff18f2b",
+      "sha256_raw_bytes": "5b5f7ad275383b5612f796a521140d504463ccbf58dd8ce93b2bbe14cbef5db5",
+      "size_bytes": 431,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "scripts/start_agent.sh",
+      "original_blob_oid": "9d236d64e515b81764d686e84df8f810dfe062ad",
+      "sha256_raw_bytes": "3c8950f7478105933d2d23679309dba0b9ecf3c035d83c5a0f8e15a5480bebc2",
+      "size_bytes": 374,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "server.py",
+      "original_blob_oid": "15559c3dd14eff5d9a123bdceaa552406a6b35f0",
+      "sha256_raw_bytes": "d10ef62619dcc49fc2aba4a17ea40d665b00f662fa677338ebcf2602d13e80b4",
+      "size_bytes": 1273,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/__init__.py",
+      "original_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256_raw_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/agents/__init__.py",
+      "original_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256_raw_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/agents/community_agent.py",
+      "original_blob_oid": "b0541593942ac42d9815a3b33fa3c00c54bc67ce",
+      "sha256_raw_bytes": "453ff43e3b46802286b56d6cc38d319b0073bc5ee2431d824a57a4ec84295e1c",
+      "size_bytes": 7611,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/agents/library_agent.py",
+      "original_blob_oid": "26f1d4372ce43e5768f579a32036f2c90e32edea",
+      "sha256_raw_bytes": "36d9a52e928ea2604ef91f985642155a24349f05bb97bbb7cc415eb5ae624694",
+      "size_bytes": 3450,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/agents/marketing_agent.py",
+      "original_blob_oid": "70d6408689e75dc0e260c3010a933e454c273f55",
+      "sha256_raw_bytes": "1f4855950b74538d3a0b5eb206dde2158ba8a487585bd1801f30a66385cb9a81",
+      "size_bytes": 8473,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/agents/orchestrator.py",
+      "original_blob_oid": "232a7b875a06ff4ba06f71c5f38017329fceff34",
+      "sha256_raw_bytes": "b1efb81a3250d064b6e7c86836eee646ee1a4e6872995405c3014138f2795b2f",
+      "size_bytes": 10130,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/agents/submissions_agent.py",
+      "original_blob_oid": "49529d263188d3cfd033a904c1ff2295309ca218",
+      "sha256_raw_bytes": "75b70b52a567a3e46624835de3265a73012eac0975c40b05eb0e47e8f5515e2f",
+      "size_bytes": 4237,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/marketing/__init__.py",
+      "original_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256_raw_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/marketing/content_generator.py",
+      "original_blob_oid": "49cdca730f76266bafd5661256a6c01d0344bc0c",
+      "sha256_raw_bytes": "ccc19ea909d8ee792e611cee82c47d73e7373c7803e4a2e6dec901dbf9f8c29c",
+      "size_bytes": 8845,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/memory/__init__.py",
+      "original_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256_raw_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/memory/persistent_state.py",
+      "original_blob_oid": "adaea9987f26ec4bbb6e72e999148ae96f313da3",
+      "sha256_raw_bytes": "08b05ed47125c9ad3e368187b9967f95fae4c4981649ff799f67037da305dbc2",
+      "size_bytes": 8559,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/platforms/__init__.py",
+      "original_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256_raw_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/platforms/blog_manager.py",
+      "original_blob_oid": "7284e2b313412a675078b275232e081ce570864f",
+      "sha256_raw_bytes": "58715caf7685e733f7c088f4ad331815badbca7b28e66fd6b6c4361ad4c1ff0a",
+      "size_bytes": 2550,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/platforms/bluesky_client.py",
+      "original_blob_oid": "0bf5622a0311828deb0fb09fc280e435eb01218b",
+      "sha256_raw_bytes": "8c1b376820bea36b5989eabd099a329ffc9925c7529bad4908a596f23a11a82c",
+      "size_bytes": 1554,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/platforms/chirper_client.py",
+      "original_blob_oid": "72a5a247b9d056aacc388bfc4da5e8a733ebba62",
+      "sha256_raw_bytes": "cd4f8671462a9c679b4fda748fb7cd273f1347d70fee9c788610150d5869b9a3",
+      "size_bytes": 2836,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/platforms/email_client.py",
+      "original_blob_oid": "63c9843ae406aea7aad3a1a5e05c7d6c723d0c5e",
+      "sha256_raw_bytes": "36f2cb36ce86755e5e83bbbd1ab43b5ed28e6abe4a440c25296c9f2b21d5445f",
+      "size_bytes": 3082,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/platforms/moltbook_client.py",
+      "original_blob_oid": "19fe0c7372e7188c4685efd6223308413c349ed5",
+      "sha256_raw_bytes": "daa746e1407f353c7adfd1aa0ce01776810a100ca5415eb6ba84b6f9ab0f04a4",
+      "size_bytes": 6982,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/platforms/molthub_client.py",
+      "original_blob_oid": "e673c36a94d215e5a0ab0f0b8a4619954c597110",
+      "sha256_raw_bytes": "29f2ea885960d598f744212c7d3a15fd96bc1c7765e6707480a2eb8b41cbfb33",
+      "size_bytes": 7022,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/platforms/reddit_client.py",
+      "original_blob_oid": "01a8e9051d183e288c74d805adb3025c1b7814c3",
+      "sha256_raw_bytes": "096865db4538cdfee0d139fa47a9a41151b8e0888cb5877c405dc40dd6ed381a",
+      "size_bytes": 3859,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/scheduler/__init__.py",
+      "original_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256_raw_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/self_improvement/__init__.py",
+      "original_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256_raw_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/self_improvement/strategy_reflector.py",
+      "original_blob_oid": "4e5f282b891eb68cec0653459e728cae652c54d3",
+      "sha256_raw_bytes": "88f5818177782ea77f346a53f91ef3c0b491538f47103daf669c427bf5c6b2e8",
+      "size_bytes": 4609,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/submissions/__init__.py",
+      "original_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256_raw_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/utils/__init__.py",
+      "original_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256_raw_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/utils/llm_pool.py",
+      "original_blob_oid": "f2e97dccd497f17c1c4e843e9f109bfee7b7dfaf",
+      "sha256_raw_bytes": "0b5e9dbafaaddce4a2ca5602c00d2292651853a579b8e2f023501cc8dcafd977",
+      "size_bytes": 15984,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/utils/logger.py",
+      "original_blob_oid": "6cc1f91103d2a841eea644214f3233cc08316105",
+      "sha256_raw_bytes": "c956af04c98672b984116bc0a8d0f763205a41139422cb893f3bd941df99060a",
+      "size_bytes": 1227,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "src/utils/web_scraper.py",
+      "original_blob_oid": "afbc1d2ef2efcfb9e4499dadd1dc4ae9438295ac",
+      "sha256_raw_bytes": "38245dfdbf9d73750ef0b2c9398a9a5006624f624751d2419e19be081d32f8b0",
+      "size_bytes": 4268,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "templates/emails/library_request.md",
+      "original_blob_oid": "901126642feeb22201631b7d15a77815906d30ed",
+      "sha256_raw_bytes": "a703e1e3e5154ca2de2d944fcc455fd9e9e808214526e7bf4d21b2b9bea2fff3",
+      "size_bytes": 344,
+      "handling": "outbound_template_preserved"
+    },
+    {
+      "path": "templates/emails/query_letter.md",
+      "original_blob_oid": "56437e8e783f5f88d3f40d47286411a454e5f273",
+      "sha256_raw_bytes": "54aaeceda743036263e22e46bca321a0b35a6f164916cccfbb3cbc20b6fac839",
+      "size_bytes": 270,
+      "handling": "outbound_template_preserved"
+    },
+    {
+      "path": "templates/press_releases/new_release.md",
+      "original_blob_oid": "3a0cad7e07a99d014be748304ebfde18a4a56c2c",
+      "sha256_raw_bytes": "e4f32039a9350290f12aba42c3808621809e86a0bd7679c3da17260a83df4e1c",
+      "size_bytes": 340,
+      "handling": "outbound_template_preserved"
+    },
+    {
+      "path": "templates/social_posts/reddit_template.md",
+      "original_blob_oid": "b4b0dfa120aa712051527e403dc7d8814d8fb081",
+      "sha256_raw_bytes": "e0c7f68ba692b60d874fc40060e1507b56c6a6375c4c0be3035083b29df23ed1",
+      "size_bytes": 254,
+      "handling": "outbound_template_preserved"
+    },
+    {
+      "path": "tests/__init__.py",
+      "original_blob_oid": "e69de29bb2d1d6434b8b29ae775ad8c2e48c5391",
+      "sha256_raw_bytes": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "size_bytes": 0,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "tests/test_llm_pool.py",
+      "original_blob_oid": "8a6ff633fb7a484723ac1f9a1a1047322e7d0734",
+      "sha256_raw_bytes": "bcab400e203b8af4e5b778658682ed67c5458183fea4a0236ec9656202e18fdd",
+      "size_bytes": 1848,
+      "handling": "apache_2_0_header"
+    },
+    {
+      "path": "unified_llm.py",
+      "original_blob_oid": "5cc8e94963608fb8c7fa8c7c50a5918f2000354a",
+      "sha256_raw_bytes": "ba2996448c6acc056926515a89137b7d22339b3595d29e77b65b2ef4b798a5a1",
+      "size_bytes": 14930,
+      "handling": "apache_2_0_header"
+    }
+  ],
+  "distinctive_passages": [
+    {
+      "path": "src/utils/llm_pool.py",
+      "original_commit": "0deb9b7ad118f5ad1799e11b2309fb66d4957ad5",
+      "original_blob_oid": "f2e97dccd497f17c1c4e843e9f109bfee7b7dfaf",
+      "line_range": {
+        "start": 177,
+        "end": 197
+      },
+      "purpose": "provider and API-key rotation",
+      "text": "    def _get_next_key(self, provider: ProviderConfig) -> Optional[ProviderKey]:\n        \"\"\"Get next available key for a provider.\"\"\"\n        now = time.time()\n        attempts = 0\n        while attempts < len(provider.keys):\n            key = provider.keys[provider.current_key_idx]\n            if key.cooldown_until < now:\n                return key\n            provider.current_key_idx = (provider.current_key_idx + 1) % len(provider.keys)\n            attempts += 1\n        return None\n\n    def _rotate_key(self, provider: ProviderConfig):\n        \"\"\"Move to next key in this provider.\"\"\"\n        provider.current_key_idx = (provider.current_key_idx + 1) % len(provider.keys)\n\n    def _rotate_provider(self):\n        \"\"\"Move to next provider.\"\"\"\n        self.current_provider_idx = (self.current_provider_idx + 1) % len(self.providers)\n\n    def _mark_key_failed(self, key: ProviderKey, cooldown_seconds: int = 60):",
+      "comparison_normalization": "Unicode NFC; collapse whitespace runs to one ASCII space; trim ends",
+      "normalized_text_sha256": "cda42eb9448cb74ef70ff0534627459185eada1bacba7e4b5550253828c9acca"
+    },
+    {
+      "path": "src/agents/orchestrator.py",
+      "original_commit": "0deb9b7ad118f5ad1799e11b2309fb66d4957ad5",
+      "original_blob_oid": "232a7b875a06ff4ba06f71c5f38017329fceff34",
+      "line_range": {
+        "start": 217,
+        "end": 235
+      },
+      "purpose": "time-based task schedule",
+      "text": "    def _get_scheduled_tasks(self, hour: int) -> list:\n        \"\"\"Determine which tasks to run based on current hour.\"\"\"\n        tasks = []\n\n        # Marketing: every 2 hours (most frequent)\n        if self._heartbeat_count % 4 == 1:  # ~every 2 hours\n            tasks.append(\"marketing\")\n\n        # Community: every 6 hours\n        if self._heartbeat_count % 12 == 3:\n            tasks.append(\"community\")\n\n        # Submissions: every 12 hours\n        if self._heartbeat_count % 24 == 5:\n            tasks.append(\"submissions\")\n\n        # Library: once daily at a quiet hour\n        if hour == 10 and self._heartbeat_count % 48 == 7:\n            tasks.append(\"library\")",
+      "comparison_normalization": "Unicode NFC; collapse whitespace runs to one ASCII space; trim ends",
+      "normalized_text_sha256": "78a5c5f81dee928de1f948a30b01e3e3f17787de78c5c4a62fef69863db57855"
+    },
+    {
+      "path": "src/agents/submissions_agent.py",
+      "original_commit": "0deb9b7ad118f5ad1799e11b2309fb66d4957ad5",
+      "original_blob_oid": "49529d263188d3cfd033a904c1ff2295309ca218",
+      "line_range": {
+        "start": 79,
+        "end": 93
+      },
+      "purpose": "contest discovery behavior",
+      "text": "    async def _discover_contests(self) -> List[Dict]:\n        \"\"\"Search for open literary contests and awards.\"\"\"\n        raw_results = await self.scraper.find_literary_contests()\n\n        # Deduplicate and filter\n        seen_urls = set()\n        contests = []\n        for r in raw_results:\n            if r[\"url\"] not in seen_urls:\n                seen_urls.add(r[\"url\"])\n                contests.append(r)\n        return contests\n\n    def _match_book_to_contest(self, contest: Dict) -> Book:\n        \"\"\"Match the best book to a contest based on genre.\"\"\"",
+      "comparison_normalization": "Unicode NFC; collapse whitespace runs to one ASCII space; trim ends",
+      "normalized_text_sha256": "068751dd5c3e515995d3e066a920dca093aa1ed2e0a2d431e864b51921b83a73"
+    },
+    {
+      "path": "docs/AGENT_BEHAVIOR.md",
+      "original_commit": "0deb9b7ad118f5ad1799e11b2309fb66d4957ad5",
+      "original_blob_oid": "3a39c9c0fe2615ad051bb5fe720f8cd15130e82c",
+      "line_range": {
+        "start": 7,
+        "end": 15
+      },
+      "purpose": "published agent task cadence",
+      "text": "| Interval | Task | Description |\n|----------|------|-------------|\n| Every 30 min | Heartbeat | State save, health check |\n| Every 2 hours | Marketing | Generate and post content |\n| Every 6 hours | Community | Forum engagement, replies |\n| Every 12 hours | Submissions | Contest discovery, query letters |\n| Every 24 hours | Library | Library outreach requests |\n| Every 6 hours | Reflection | Self-improvement analysis |\n| Daily at 3 UTC | Summary | Performance report |",
+      "comparison_normalization": "Unicode NFC; collapse whitespace runs to one ASCII space; trim ends",
+      "normalized_text_sha256": "7028d5193432b65812a6e6bcb8e4b35645541ef25d050832c785b3d4c4b314dc"
+    },
+    {
+      "path": "tests/test_llm_pool.py",
+      "original_commit": "0deb9b7ad118f5ad1799e11b2309fb66d4957ad5",
+      "original_blob_oid": "8a6ff633fb7a484723ac1f9a1a1047322e7d0734",
+      "line_range": {
+        "start": 25,
+        "end": 35
+      },
+      "purpose": "author-profile assertions",
+      "text": "def test_author_profile():\n    \"\"\"Verify author profile data.\"\"\"\n    from config.author_profile import AUTHOR, ENGLISH_NOVELS, get_featured_book\n\n    assert AUTHOR.name == \"Francisco Angulo de Lafuente\"\n    assert len(ENGLISH_NOVELS) >= 8\n    assert all(b.language == \"English\" for b in ENGLISH_NOVELS)\n\n    featured = get_featured_book()\n    assert featured.title\n    assert featured.genre",
+      "comparison_normalization": "Unicode NFC; collapse whitespace runs to one ASCII space; trim ends",
+      "normalized_text_sha256": "437f11655c381fb4f0a1aec8262e5c8c65e18b267e0ff966ec93d398eac1bcfb"
+    }
+  ],
+  "excluded_from_distinctive_passages": [
+    "LICENSE",
+    "railway.json",
+    "templates/emails/library_request.md",
+    "templates/emails/query_letter.md",
+    "templates/press_releases/new_release.md",
+    "templates/social_posts/reddit_template.md"
+  ]
+}

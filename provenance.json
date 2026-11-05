@@ -1,0 +1,166 @@
+{
+  "schema_version": "1.0",
+  "project": "OpenCLAW-2 Autonomous Multi-Agent Literary System",
+  "repository": "Agnuxo1/OpenCLAW-2-Autonomous-Multi-Agent-literary",
+  "canonical_url": "https://github.com/Agnuxo1/OpenCLAW-2-Autonomous-Multi-Agent-literary",
+  "author": {
+    "name": "Francisco Angulo de Lafuente",
+    "orcid": "https://orcid.org/0009-0001-1634-7063"
+  },
+  "copyright_holder": "Francisco Angulo de Lafuente / OpenCLAW Project",
+  "copyright_years": "2024-2026",
+  "recorded_on": "2026-11-05",
+  "repository_created_at": "2026-02-12T14:48:50Z",
+  "baseline": {
+    "commit": "0deb9b7ad118f5ad1799e11b2309fb66d4957ad5",
+    "tree": "bb597a93f11bf26e460e9e56cbd2dffcbdb41638",
+    "manifest": "provenance-baseline.json",
+    "manifest_sha256": "5bfde1d59593ac16b30b31cb34ddc71d5be8d2b493d0adf528c6a50787449665",
+    "manifest_hash_basis": "SHA-256 over the exact Git blob bytes recorded in the commit, not the line-ending-translated working-tree file."
+  },
+  "history": {
+    "reachable_commit_count": 18,
+    "github_author_login_mapped_to_Agnuxo1": 9,
+    "commits_with_unmapped_OpenCLAW_agent_author_labels": 9,
+    "unmapped_author_labels": [
+      "OpenCLAW Agent",
+      "OpenCLAW-2 Agent"
+    ],
+    "interpretation": "Git author labels for automated agents are retained in history and recorded here; GitHub login mapping is not available for them. New source and documentation headers use Project attribution for project-level credit and do not claim Francisco individually authored every modified file. The baseline Author notice on p2p_connect.js is preserved. History labels and blob hashes do not prove individual authorship.",
+    "modified_path_history": {
+      "paths_with_Francisco_labeled_commit": 4,
+      "paths_with_OpenCLAW_Agent_labeled_commit": 49,
+      "paths_with_OpenCLAW_2_Agent_labeled_commit": 5,
+      "author_label_path_sets_may_overlap": true
+    }
+  },
+  "license_scope": {
+    "root_license": {
+      "declared_spdx": "Apache-2.0",
+      "github_detected_spdx": "NOASSERTION",
+      "path": "LICENSE",
+      "status": "preserved byte-for-byte",
+      "note": "The existing 17-line short-form identifies Apache License, Version 2.0 and links to its canonical text; it was not expanded or replaced."
+    },
+    "apache_2_0_header_paths": [
+      ".env.example",
+      ".github/workflows/autonomous_agent.yml",
+      ".github/workflows/deploy.yml",
+      ".github/workflows/p2p-alive.yml",
+      ".gitignore",
+      "Dockerfile",
+      "README.md",
+      "config/__init__.py",
+      "config/author_profile.py",
+      "config/settings.py",
+      "docker-compose.yml",
+      "docs/AGENT_BEHAVIOR.md",
+      "docs/API_ROTATION.md",
+      "docs/CONFIGURATION.md",
+      "docs/DEPLOYMENT.md",
+      "hivemind.py",
+      "main.py",
+      "render.yaml",
+      "requirements.txt",
+      "scripts/start_agent.ps1",
+      "scripts/start_agent.sh",
+      "server.py",
+      "src/__init__.py",
+      "src/agents/__init__.py",
+      "src/agents/community_agent.py",
+      "src/agents/library_agent.py",
+      "src/agents/marketing_agent.py",
+      "src/agents/orchestrator.py",
+      "src/agents/submissions_agent.py",
+      "src/marketing/__init__.py",
+      "src/marketing/content_generator.py",
+      "src/memory/__init__.py",
+      "src/memory/persistent_state.py",
+      "src/platforms/__init__.py",
+      "src/platforms/blog_manager.py",
+      "src/platforms/bluesky_client.py",
+      "src/platforms/chirper_client.py",
+      "src/platforms/email_client.py",
+      "src/platforms/moltbook_client.py",
+      "src/platforms/molthub_client.py",
+      "src/platforms/reddit_client.py",
+      "src/scheduler/__init__.py",
+      "src/self_improvement/__init__.py",
+      "src/self_improvement/strategy_reflector.py",
+      "src/submissions/__init__.py",
+      "src/utils/__init__.py",
+      "src/utils/llm_pool.py",
+      "src/utils/logger.py",
+      "src/utils/web_scraper.py",
+      "tests/__init__.py",
+      "tests/test_llm_pool.py",
+      "unified_llm.py"
+    ],
+    "mit_header_paths": [
+      "p2p_connect.js"
+    ],
+    "preserved_paths": [
+      {
+        "path": "LICENSE",
+        "reason": "Existing Apache 2.0 declaration and copyright retained byte-for-byte."
+      },
+      {
+        "paths": [
+          "templates/emails/library_request.md",
+          "templates/emails/query_letter.md",
+          "templates/press_releases/new_release.md",
+          "templates/social_posts/reddit_template.md"
+        ],
+        "reason": "Communication templates are intended as outgoing content; source comments could appear in generated messages. Their original hashes are recorded in the baseline manifest."
+      },
+      {
+        "path": "railway.json",
+        "reason": "JSON does not support comments; unchanged and covered by the baseline manifest."
+      }
+    ],
+    "citation_license_field": "Omitted because license scope is file-specific; CITATION.cff points readers to this provenance record."
+  },
+  "publication_review": {
+    "visibility_at_baseline": "public",
+    "visibility_changed": false,
+    "default_branch": "main",
+    "branches": [
+      "main"
+    ],
+    "tags": [],
+    "releases": 0,
+    "specific_contest_rule": "No named competition or edition was identified as applicable to this general literary-agent repository; no specific contest rule was consulted and no contest-compliance claim is made.",
+    "actions": "autonomous_agent.yml and p2p-alive.yml are scheduled/manual; deploy.yml runs only a notification echo on push. Workflows and Actions logs were not executed or reviewed for a visibility change."
+  },
+  "security_review": {
+    "method": "Unique reachable Git blobs across all local refs; UTF-8 text up to 3 MiB.",
+    "unique_blobs": 77,
+    "text_blobs_scanned": 77,
+    "high_confidence_secret_candidates": 0,
+    "pattern_counts": {
+      "private_key_marker": 0,
+      "github_token": 0,
+      "aws_access_key": 0,
+      "openai_key": 0,
+      "google_api_key": 0,
+      "slack_token": 0,
+      "nvidia_api_key": 0,
+      "groq_api_key": 0
+    },
+    "raw_values_stored": false,
+    "limitations": [
+      "Pattern scan is not a credential-validity check.",
+      "GitHub Actions logs and remote secrets were not inspected.",
+      "Email/phone patterns were not collected."
+    ]
+  },
+  "behavior_and_validation": {
+    "runtime_logic_changed": false,
+    "visible_changes": [
+      "README retains project-author credit; source headers and four guides use project-level attribution with ORCID and recorded date.",
+      "No per-file individual authorship claim is made for agent-labeled history."
+    ],
+    "tests_and_workflows": "Two safe targeted unit tests passed with pytest plugin autoload disabled because the globally installed nengo plugin has an incompatible hook signature. Bash syntax passes on the baseline Git blob and LF-normalized attributed file; Git Bash reports an EOF parse error on the CRLF working-tree copy. PowerShell syntax parsing passes. The full test suite and workflows were not run; no agent or outbound integrations were executed.",
+    "validation": "Static source/provenance, CFF schema, YAML/JSON parsing, Python AST, Node syntax, PowerShell syntax, LF-form normalized Bash syntax, and git diff checks passed; two safe targeted unit tests passed. Git Bash cannot parse the CRLF checkout copy of start_agent.sh, while its Git LF form passes. Full test suite and workflows were not run."
+  }
+}

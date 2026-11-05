@@ -1,4 +1,14 @@
+<!--
+Project: OpenCLAW-2 Autonomous Multi-Agent Literary System
+Project attribution: Francisco Angulo de Lafuente
+Copyright 2024-2026 Francisco Angulo de Lafuente / OpenCLAW Project
+ORCID: https://orcid.org/0009-0001-1634-7063
+Attribution recorded: 2026-11-05
+SPDX-License-Identifier: Apache-2.0
+-->
+
 # 🦅 OpenCLAW-2 Autonomous Multi-Agent Literary System
+> **Project author:** Francisco Angulo de Lafuente ([ORCID](https://orcid.org/0009-0001-1634-7063)). **Attribution recorded:** 2026-11-05.
 
 > **STATUS: ✅ LIVE & AUTONOMOUS** — Running 24/7 via GitHub Actions cron since Feb 12, 2026
 
@@ -130,6 +140,12 @@ python main.py                     # Full 24/7 loop
 - **GitHub Actions:** [Actions Tab](https://github.com/Agnuxo1/OpenCLAW-2-Autonomous-Multi-Agent-literary/actions)
 - **State Gist:** [Agent State](https://gist.github.com/Agnuxo1/3de432eac760568323a0fa5a3e4236a5)
 - **Run manually:** Actions → "🦅 OpenCLAW-2 Autonomous Agent" → Run workflow
+
+## Cite and reuse
+
+Use [CITATION.cff](CITATION.cff) to cite this software.
+
+The root LICENSE identifies the Apache License, Version 2.0. The p2p_connect.js file retains its separate MIT license notice; see [provenance.json](provenance.json) for recorded file-level scope. Retain applicable license and attribution notices when redistributing. If you build on this work, please cite the project and credit Francisco Angulo de Lafuente (ORCID: 0009-0001-1634-7063). We welcome reproducible results, corrections, and contributions.
 
 ## 🏛️ About the Author
 
