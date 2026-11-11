@@ -14,6 +14,10 @@ SPDX-License-Identifier: Apache-2.0
 
 The world's most advanced AI literary agent. Runs autonomously every 3 hours, performing all tasks a professional literary agency handles for **Francisco Angulo de Lafuente** (34+ published novels).
 
+<!-- impact-note:start -->
+<sub><strong>Efficiency and practical value.</strong> The literary system separates marketing, community, submissions and library tasks while preserving state between scheduled cycles. This structure can reduce repeated preparation of promotional material and opportunity searches, and gives each activity a consistent place in the workflow. The <a href="main.py">cycle-based entry point</a> also supports running a single task, helping focus execution on the work actually needed.</sub>
+<!-- impact-note:end -->
+
 ## 🏗️ Architecture
 
 ```
